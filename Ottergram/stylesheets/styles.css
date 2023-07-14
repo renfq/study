@@ -1,0 +1,128 @@
+html,body{
+  height:100%;
+}
+body{
+  display: flex;
+  flex-direction: column;
+  font-size: 10px;
+  background: rgb(149, 194, 215);
+}
+a{
+  text-decoration: none;
+}
+.main-header{
+  flex: 0 1 auto;
+}
+.logo-text{
+  background: white;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 37px;
+}
+.main-content{
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+}
+/*.thumbnail-item+.thumbnail-item{
+  margin-top: 10px;
+}*/
+.thumbnail-item{
+  display:inline-block;
+  min-width: 120px;
+  max-width: 200px;
+  border: 1px solid rgb(100%, 100%, 100%);
+  border: 1px solid rgba(100%, 100%, 100%, 0.5);
+  transition: transform 133ms;/*缩略图过渡时间*/
+
+}
+.thumbnail-item:hover{/*鼠标悬停在缩略图上的时候，放大*/
+    transform: scale(1.5);
+}
+.thumbnail-list{
+  flex: 0 1 auto;
+  order: 2;
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  padding: 20px 0;
+  white-space: nowrap;
+  overflow-x: auto;
+}
+/*.li .a{
+  width: 50%;
+}*/
+.thumbnail-image{
+
+  display: block;
+  width: 100%;
+}
+.thumbnail-title{
+
+  display: block;
+  margin: 0;
+  font-size: 15px;
+  padding: 4px 10px;
+  background: rgb(96 , 125, 139);
+  color: rgb(202 , 238, 255);
+}
+.detail-image-container{
+  flex: 1 1 auto;
+  display: flex;
+  /*flex-direction: column;*/
+  justify-content: center;
+  align-items: center;
+}
+.detail-image-frame{
+ position: relative; /*因为detail-image-container会伸缩，所以这个语句别绪写在这里，为title做参考
+*/  text-align: center;
+  transition: transform 333ms cubic-bezier(1,.06,.28,1);
+}
+.is-tiny{/*大图缩小,而且没有过渡时间*/
+  transform: scale(0.001);
+  transition: transform 0ms;
+}
+.detail-image-title{
+  position: absolute;
+  bottom: -1px;
+  left: 40px;
+  color:white;
+  text-shadow: rgba(255, 0, 0, 0.5) 1px 2px 9px;
+  font-size: 20px;
+}
+.detail-image{
+  width: 90%;
+}
+/*如果detail-image-container成为hidden-detail的子元素时，该样式有效*/
+.hidden-detail .detail-image-container{
+  display: none;
+}
+.hidden-detail .thumbnail-list{
+  flex-direction: column;
+  align-items: center;
+}
+.hidden-detail .thumbnail-item{
+  max-width: 80%;
+}
+@media all and (orientation: portrait){
+  .main-content{
+    flex-direction: row;
+    overflow: hidden;
+
+  }
+  .thumbnail-list{
+    flex-direction: column;
+    order: 0;
+    margin-left: 20px;
+    padding: 0 35px;
+
+  }
+  .thumbnail-item{
+    max-width: 260px;
+
+  }
+  .thumbnail-item+.thumbnail-item{
+    margin-top: 20px;
+  }
+
+}
