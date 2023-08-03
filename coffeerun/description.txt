@@ -1,0 +1,2 @@
+在atom下编辑，用chrome 调试，coffeeorders是服务器端，需要启动bin下exe文件。
+其他是前端js，现在没有在remoteDS，只要将myTruck这一行改一下，并且将浏览器忽略跨域问题，就i能解决
